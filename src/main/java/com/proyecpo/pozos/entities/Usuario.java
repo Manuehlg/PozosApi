@@ -19,11 +19,14 @@ public class Usuario {
     private String nombre;
     @NotNull
     private String apellido;
-    @NotNull
-    private String password;
+    private String direccion;
+    private String metodoPago; // ejemplo: tarjeta, IBAN, etc.
     @NotNull
     private String correo;
+    @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Cuenta> cuentas;
     @OneToMany(mappedBy = "Usuario", cascade = CascadeType.ALL)
     private List<Explotacion> explotaciones;
+
 
 }
