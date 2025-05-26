@@ -14,7 +14,7 @@ public class Usuario {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idUsuario;
+    private int id;
     @NotNull
     private String nombre;
     @NotNull
@@ -22,8 +22,12 @@ public class Usuario {
     @NotNull
     private String password;
     @NotNull
-    private String correo;
-    @OneToMany(mappedBy = "Usuario", cascade = CascadeType.ALL)
+    private String email;
+    @NotNull
+    private String direccion;
+    @NotNull
+    private String metodoPago;
+    @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
     private List<Explotacion> explotaciones;
 
 }
