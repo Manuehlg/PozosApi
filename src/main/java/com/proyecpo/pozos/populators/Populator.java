@@ -12,7 +12,7 @@ import java.util.List;
 
 @Component
 @ConditionalOnProperty(name = "spring.jpa.hibernate.ddl-auto", havingValue = "create")
-public class Populators {
+public class Populator {
 
     private final UsuarioRepository usuarioRepository;
     private final ExplotacionRepository explotacionRepository;
@@ -20,7 +20,7 @@ public class Populators {
     private final CaracteristicasPozoRepository caracteristicasPozoRepository;
     private final MedicionesRepository medicionesRepository;
 
-    public Populators(UsuarioRepository usuarioRepository,
+    public Populator(UsuarioRepository usuarioRepository,
                       ExplotacionRepository explotacionRepository,
                       PozoRepository pozoRepository,
                       CaracteristicasPozoRepository caracteristicasPozoRepository,

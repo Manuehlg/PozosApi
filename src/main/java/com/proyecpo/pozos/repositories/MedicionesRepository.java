@@ -10,5 +10,4 @@ import java.util.List;
 public interface MedicionesRepository extends JpaRepository<Mediciones, Long> {
     List<Mediciones> findByPozoId(Long pozoId);
     void deleteById(Long id);
-
 }

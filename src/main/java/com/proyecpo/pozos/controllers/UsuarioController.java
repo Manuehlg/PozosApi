@@ -1,15 +1,11 @@
 package com.proyecpo.pozos.controllers;
 
 import com.proyecpo.pozos.entities.Usuario;
-import com.proyecpo.pozos.repositories.UsuarioRepository;
 import com.proyecpo.pozos.services.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
 import java.util.Optional;
@@ -26,11 +22,15 @@ public class UsuarioController {
         String email = credentials.get("email");
         String password = credentials.get("password");
 
-        Optional<Usuario> usuario = usuarioService.login(email, password);
-        if (usuario.isPresent()) {
-            return ResponseEntity.ok(usuario.get());
+        if (email == null || password == null) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Email y contraseña son obligatorios.");
         }
 
-        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Credenciales inválidas");
+        Optional<Usuario> usuarioOptional = usuarioService.login(email, password);
+        if (usuarioOptional.isPresent()) {
+            return ResponseEntity.ok(usuarioOptional.get());
+        } else {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Credenciales incorrectas.");
+        }
     }
 }
