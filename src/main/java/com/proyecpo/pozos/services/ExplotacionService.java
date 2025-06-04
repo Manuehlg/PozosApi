@@ -1,5 +1,6 @@
 package com.proyecpo.pozos.services;
 
+import com.proyecpo.pozos.dto.ExplotacionDTO;
 import com.proyecpo.pozos.entities.Explotacion;
 import com.proyecpo.pozos.repositories.ExplotacionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,4 +28,17 @@ public class ExplotacionService {
     public List<Explotacion> getAll() {
         return explotacionRepository.findAll();
     }
+    public List<ExplotacionDTO> getAllDTOs() {
+        return explotacionRepository.findAll().stream()
+                .map(exp -> new ExplotacionDTO(
+                        exp.getId(),
+                        exp.getNombre(),
+                        exp.getUbicacion(),
+                        exp.getDescripcion(),
+                        exp.getImagen(),
+                        exp.getUsuario().getId()
+                ))
+                .toList();
+    }
+
 }

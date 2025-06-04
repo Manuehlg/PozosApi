@@ -1,5 +1,6 @@
 package com.proyecpo.pozos.controllers;
 
+import com.proyecpo.pozos.dto.ExplotacionDTO;
 import com.proyecpo.pozos.entities.Explotacion;
 import com.proyecpo.pozos.repositories.ExplotacionRepository;
 import com.proyecpo.pozos.services.ExplotacionService;
@@ -31,8 +32,8 @@ public class ExplotacionController {
     }
 
     @GetMapping
-    public List<Explotacion> getAll() {
-        return explotacionService.getAll();
+    public List<ExplotacionDTO> getAll() {
+        return explotacionService.getAllDTOs();
     }
 
 }
