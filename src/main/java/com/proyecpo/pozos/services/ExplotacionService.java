@@ -24,4 +24,7 @@ public class ExplotacionService {
     public void delete(Long id) {
         explotacionRepository.deleteById(id);
     }
+    public List<Explotacion> getAll() {
+        return explotacionRepository.findAll();
+    }
 }

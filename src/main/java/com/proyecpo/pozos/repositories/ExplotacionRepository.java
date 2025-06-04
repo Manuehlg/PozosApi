@@ -9,4 +9,5 @@ import java.util.List;
 @Repository
 public interface ExplotacionRepository extends JpaRepository<Explotacion, Long> {
     List<Explotacion> findByUsuarioId(Long usuarioId);
+
 }

@@ -29,5 +29,11 @@ public class ExplotacionController {
     public void delete(@PathVariable Long id) {
         explotacionService.delete(id);
     }
+
+    @GetMapping
+    public List<Explotacion> getAll() {
+        return explotacionService.getAll();
+    }
+
 }
 
