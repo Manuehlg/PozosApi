@@ -30,13 +30,13 @@ public class ExplotacionService {
     }
     public List<ExplotacionDTO> getAllDTOs() {
         return explotacionRepository.findAll().stream()
-                .map(exp -> new ExplotacionDTO(
+                .map(exp ->
+                        new ExplotacionDTO(
                         exp.getId(),
                         exp.getNombre(),
                         exp.getUbicacion(),
                         exp.getDescripcion(),
-                        exp.getImagen(),
-                        exp.getUsuario().getId()
+                        exp.getImagen()
                 ))
                 .toList();
     }

@@ -6,18 +6,17 @@ public class ExplotacionDTO {
     private String ubicacion;
     private String descripcion;
     private String imagen;
-    private int usuarioId;
+
 
     public ExplotacionDTO() {
     }
 
-    public ExplotacionDTO(Long id, String nombre, String ubicacion, String descripcion, String imagen, int usuarioId) {
+    public ExplotacionDTO(Long id, String nombre, String ubicacion, String descripcion, String imagen ) {
         this.id = id;
         this.nombre = nombre;
         this.ubicacion = ubicacion;
         this.descripcion = descripcion;
         this.imagen = imagen;
-        this.usuarioId = usuarioId;
     }
 
     // Getters y Setters
@@ -59,13 +58,5 @@ public class ExplotacionDTO {
 
     public void setImagen(String imagen) {
         this.imagen = imagen;
-    }
-
-    public int getUsuarioId() {
-        return usuarioId;
-    }
-
-    public void setUsuarioId(int usuarioId) {
-        this.usuarioId = usuarioId;
     }
 }
