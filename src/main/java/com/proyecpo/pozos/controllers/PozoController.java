@@ -9,6 +9,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/pozos")
+@CrossOrigin("*")
 public class PozoController {
     @Autowired
     private PozoRepository pozoRepo;
